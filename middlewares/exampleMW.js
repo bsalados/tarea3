@@ -1,5 +1,5 @@
 const globalMw = (req, res, next) => {
-    console.log('this is a global mw');
+   // console.log('this is a global mw');
     next()
 }
 
