@@ -1,5 +1,5 @@
 const clients = {
-    c1: {
+    1: {
         firstName: 'Miriam',
         lastName: 'Hernandez',
         spentAmount: '500'

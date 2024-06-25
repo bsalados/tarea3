@@ -1,49 +1,58 @@
 const express = require('express');
 const router = express.Router();
-const clientServices = require('../services/clientServices');
+const chefServices = require('../services/chefServices');
 const { localMw } = require('../middlewares/exampleMW');
 
 router.get('/', (req, res) => {
-    const clients = clientServices.getAll()
+    const chefs = chefServices.getAll()
     res.status(200).json({
-        clients,
-        message: 'Here is the client list'
+        chefs,
+        message: 'Here is the chef list'
     });
 });
 
 router.get('/:id',
     localMw,
     (req, res) => {
-    const clientId = req.params.id;
-    const client = clientServices.getOne(clientId);
+    const chefId = req.params.id;
+    const chef = chefServices.getOne(chefId);
     res.status(200).json({
-        client,
-        message: 'Here is the client list'
+        chef,
+        message: 'Here is the chef list'
     });
 });
 
 router.post('/', (req, res) => {
     const info = req.body;
-    clientServices.create(info);
+    chefServices.create(info);
     res.status(201).json({
-        message: 'client list updated'
+        message: 'new chef saved'
     });
 });
 
-router.patch('/update-first-name/:id', (req, res) => {
+router.patch('/assign-address-restaurant/:id', (req, res) => {
     const { id } = req.params;
-    const { firstName } = req.body;
-    clientServices.updateFirstName(id, firstName)
+    const { addressRestaurant } = req.body;
+    chefServices.assignAddressRestaurant(id, addressRestaurant)
     res.status(200).json({
-        message: 'client updated'
+        message: 'chefs info updated'
+    });
+});
+
+router.patch('/update-address-restaurant/:id', (req, res) => {
+    const { id } = req.params;
+    const { addressRestaurant } = req.body;
+    chefServices.updateAddressRestaurant(id, addressRestaurant)
+    res.status(200).json({
+        message: 'chef updated'
     });
 });
 
 router.delete('/:id', (req, res) => {
     const { id } = req.params;
-    clientServices.remove(id);
+    chefServices.remove(id);
     res.status(200).json({
-        message: 'client deleted'
+        message: 'chef deleted'
     });
 });
 

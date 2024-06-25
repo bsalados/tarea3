@@ -1,13 +1,16 @@
-const restaurant = {
-    1: {
-        restaurantAddress: 'Texcoco'
+const restaurants = {
+    Texcoco: {
+        firstName: 'Bety',
+        lastName: 'Salado'
     },
-    2: {
-        restaurantAddress: 'CDMX'
+    CDMX: {
+        firstName: 'Alma',
+        lastName: 'Salado'
     },
-    3: {
-        restaurantAddress: 'Puebla'
+    Puebla: {
+        firstName: 'Arturo',
+        lastName: 'Salado'
     }
 }
 
-module.exports = restaurant
+module.exports = restaurants

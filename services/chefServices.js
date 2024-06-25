@@ -1,34 +1,44 @@
-const clients = require('../libs/clients');
+const chefs = require('../libs/chefs');
+const restaurants = require('../libs/restaurants');
 
-class Client {
+class Chef {
     constructor(){}
 
     static getAll(){
-        const myClients = clients;
-        return myClients;
+        const myChefs = chefs;
+        return myChefs;
     }
 
-    static getOne(clientId){
-        const client = clients[clientId];
-        return client;
+    static getOne(chefId){
+        const chef = chefs[chefId];
+        return chef;
     }
 
     static create(info){
-        const clientsAmount =  (Object.keys(clients)).length + 1;
-        clients[clientsAmount] = info;
+        const subInfo = (({firstName, lastName, entryDate}) => ({firstName, lastName, entryDate}))(info);
+        const chefsAmount =  (Object.keys(chefs)).length + 1;
+        chefs[chefsAmount] = subInfo;
         return true;
     }
 
-    static updateFirstName(clientId, firstName){
-        clients[clientId].firstName = firstName;
+    static assignAddressRestaurant(chefId, addressRestaurant){
+        chefs[chefId].addressRestaurant = addressRestaurant;
+        
         return true;
     }
 
-    static remove(clientId){
-        delete clients[clientId];
+    /*
+    static udpateaddressRestaurantChef(chefId, addressRestaurant){
+        chefs[chefId].addressRestaurant = addressRestaurant;
+        return true;
+    }*/
+    
+
+    static remove(chefId){
+        delete chefs[chefId];
         return true;
     }
 
 }
 
-module.exports = Client;
+module.exports = Chef;

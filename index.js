@@ -4,8 +4,8 @@ const app = express();
 const configureRoutes = require('./routes');
 const { globalMw } = require('./middlewares/exampleMW');
 
-//const port = process.env.PORT
-const port = 3000;
+const port = process.env.PORT
+//const port = 3000;
 
 app.use(express.json());
 app.use(globalMw);

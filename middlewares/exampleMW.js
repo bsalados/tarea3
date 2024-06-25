@@ -4,7 +4,7 @@ const globalMw = (req, res, next) => {
 }
 
 const localMw = (req, res, next) => {
-    console.log('this is a local mw');
+    //console.log('this is a local mw');
     next();
 }
 
