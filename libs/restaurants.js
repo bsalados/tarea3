@@ -1,15 +1,12 @@
 const restaurants = {
     Texcoco: {
-        firstName: 'Bety',
-        lastName: 'Salado'
+        chefs: {1:'Bety Salado'}
     },
     CDMX: {
-        firstName: 'Alma',
-        lastName: 'Salado'
+        chefs: {1:'Alma Salado',2:'Fiodor Zyrianov'}
     },
     Puebla: {
-        firstName: 'Arturo',
-        lastName: 'Salado'
+        chefs: {1:'Arturo Salado'}
     }
 }
 

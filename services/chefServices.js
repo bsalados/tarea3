@@ -23,7 +23,8 @@ class Chef {
 
     static assignAddressRestaurant(chefId, addressRestaurant){
         chefs[chefId].addressRestaurant = addressRestaurant;
-        
+        const chefsAmount =  (Object.keys(restaurants[addressRestaurant].chefs)).length + 1;
+        restaurants[addressRestaurant].chefs[chefsAmount] = chefs[chefId].firstName + ' ' + chefs[chefId].lastName 
         return true;
     }
 

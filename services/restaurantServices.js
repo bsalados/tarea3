@@ -8,14 +8,14 @@ class Restaurant {
         return allRestaurants;
     }
 
-    static getOne(restaurantId){
-        const restaurant = restaurants[restaurantId];
+    static getOne(addressRestaurant){
+        const restaurant = restaurants[addressRestaurant];
         return restaurant;
     }
 
     static create(info){
         const restaurantsAmount =  (Object.keys(restaurants)).length + 1;
-        restaurants[restaurantsAmount] = info;
+        restaurants[info.addressRestaurant] = {};
         return true;
     }
 

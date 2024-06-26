@@ -11,14 +11,14 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:id',
+router.get('/:restaurant',
     localMw,
     (req, res) => {
-    const restaurantId = req.params.id;
-    const restaurant = restaurantServices.getOne(restaurantId);
+    const addressRestaurant = req.params.restaurant;
+    const restaurant = restaurantServices.getOne(addressRestaurant);
     res.status(200).json({
         restaurant,
-        message: 'Here is the restaurant list'
+        message: 'Here is the chef list in ' + addressRestaurant
     });
 });
 
@@ -39,9 +39,9 @@ router.patch('/update-name/:id', (req, res) => {
     });
 });
 */
-router.delete('/:id', (req, res) => {
-    const { id } = req.params;
-    restaurantServices.remove(id);
+router.delete('/:restaurant', (req, res) => {
+    const { restaurant } = req.params;
+    restaurantServices.remove(restaurant);
     res.status(200).json({
         message: 'restaurant deleted'
     });
