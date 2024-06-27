@@ -24,24 +24,33 @@ router.get('/:id',
 
 router.post('/', (req, res) => {
     const info = req.body;
-    chefServices.create(info);
+    const message = chefServices.create(info);
     res.status(201).json({
-        message: 'new chef saved'
+        message: message
     });
 });
 
 router.patch('/assign-address-restaurant/:id', (req, res) => {
     const { id } = req.params;
     const { addressRestaurant } = req.body;
-    chefServices.assignAddressRestaurant(id, addressRestaurant)
+    const message = chefServices.assignAddressRestaurant(id, addressRestaurant);
     res.status(200).json({
-        message: 'chefs info updated'
+        message: message
+    });
+});
+
+router.patch('/change-address-restaurant/:id', (req, res) => {
+    const { id } = req.params;
+    const { addressRestaurant } = req.body;
+    const message = chefServices.changeAddressRestaurant(id, addressRestaurant);
+    res.status(200).json({
+        message: message
     });
 });
 
 router.patch('/update-address-restaurant/:id', (req, res) => {
     const { id } = req.params;
-    const { addressRestaurant } = req.body;
+    const { addressRestaurant } = req.body.addressRestaurant;
     chefServices.updateAddressRestaurant(id, addressRestaurant)
     res.status(200).json({
         message: 'chef updated'

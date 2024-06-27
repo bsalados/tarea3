@@ -14,9 +14,11 @@ class Restaurant {
     }
 
     static create(info){
-        const restaurantsAmount =  (Object.keys(restaurants)).length + 1;
-        restaurants[info.addressRestaurant] = {};
-        return true;
+        if (restaurants.hasOwnProperty(info.addressRestaurant) == false){
+            restaurants[info.addressRestaurant] = {};
+            return ('restaurant list updated');
+            } else {
+            return ('Restaurant Address already exists')}
     }
 
     /*static updateFirstName(clientId, firstName){

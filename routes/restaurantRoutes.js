@@ -24,9 +24,9 @@ router.get('/:restaurant',
 
 router.post('/', (req, res) => {
     const info = req.body;
-    restaurantServices.create(info);
+    const message = restaurantServices.create(info);
     res.status(201).json({
-        message: 'restaurant list updated'
+        message: message
     });
 });
 /*
